@@ -10,14 +10,18 @@ import android.widget.EditText
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var dayNumberInput: EditText
+    private lateinit var dayNameOutput: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        dayNumberInput = findViewById(R.id.dayNumberInput)
+        dayNameOutput = findViewById(R.id.dayNameOutput)
+        val showDayButton: Button = findViewById(R.id.showDayButton)
+
+
         }
     }
-}
