@@ -22,6 +22,22 @@ class MainActivity : AppCompatActivity() {
         dayNameOutput = findViewById(R.id.dayNameOutput)
         val showDayButton: Button = findViewById(R.id.showDayButton)
 
-
+        showDayButton.setOnClickListener {
+            val dayNumber = dayNumberInput.text.toString().toIntOrNull()
+            dayNameOutput.text = dayNumber?.let { getDayName(it) } ?: "Введите корректный номер дня!"
         }
     }
+
+    private fun getDayName(dayNumber: Int): String {
+        return when (dayNumber) {
+            1 -> "Понедельник"
+            2 -> "Вторник"
+            3 -> "Среда"
+            4 -> "Четверг"
+            5 -> "Пятница"
+            6 -> "Суббота"
+            7 -> "Воскресенье"
+            else -> "Неверный номер дня! Пожалуйста, введите число от 1 до 7."
+        }
+    }
+}
